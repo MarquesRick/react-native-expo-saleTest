@@ -24,10 +24,17 @@ Com base nessa aplicação iremos criar testes.
 rodando o jest
 npm test
 
+instalar para o intellisense do jest funcionar no vscode
+npm i @types/jest
+
+instalar expo jest 
+expo install jest-expo jest
+
 [expo jest](https://docs.expo.dev/guides/testing-with-jest/) 
 [jest expect](https://jestjs.io/pt-BR/docs/expect)
 [jest globais](https://jestjs.io/pt-BR/docs/api)
 [jest coverage](https://docs.expo.dev/guides/testing-with-jest/#code-coverage-reports)
+[jest mock](https://jestjs.io/pt-BR/docs/mock-function-api)
 
 
 Jest Expect:
@@ -46,6 +53,14 @@ afterAll(() => {}): executa a função após todos os testes do seu contexto (ar
 beforeAll(() => {}): executa a função antes que todos os testes do seu contexto (arquivo ou describe) comecem sua execução;
 afterEach(() => {}): executa a função várias vezes, sempre que um teste do seu contexto (arquivo ou describe) terminarem sua execução;
 beforeEach(() => {}): executa a função várias vezes, sempre antes que um teste do seu contexto (arquivo ou describe) começar sua execução.
+
+Mock:
+mockClear(): Limpa todos os registros das chamadas das funções;
+mockReset(): Faz tudo o que mockClear() faz, e também limpa as implementações e valores a serem retornados, voltando a ser como quando criamos uma função jest.fn();
+mockRestore(): Faz tudo o que mockClear() faz, e também volta a implementação de método original;
+mockImplementation(fn): Seta uma nova implementação para a função mockada. Há um atalho para esse método: jest.fn(implementation);
+mockReturnValue(value): Seta um valor fixo a ser retornado.
+
 
 
 

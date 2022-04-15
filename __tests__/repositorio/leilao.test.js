@@ -30,16 +30,33 @@ const mockRequisicaoErro = () => {
 };
 
 describe("repositorio/leilao", () => {
+  //funcao para rodar antes de cada teste
+  beforeEach(() => {
+    apiLeiloes.get.mockClear();
+  });
   describe("obtemLeiloes", () => {
     it("deve retornar uma lista de leiloes", async () => {
       apiLeiloes.get.mockImplementation(() => mockRequisicao(mockLeiloes));
       const leiloes = await obtemLeiloes();
       expect(leiloes).toEqual(mockLeiloes);
+
+      //se foi chamado com a url do get /leiloes
+      expect(apiLeiloes.get).toHaveBeenCalledWith("/leiloes");
+
+      //quantas vezes foi chamado
+      expect(apiLeiloes.get).toHaveBeenCalledTimes(1);
     });
     it("deve retornar uma lista vazia quando a requisicao falhar", async () => {
       apiLeiloes.get.mockImplementation(() => mockRequisicaoErro());
       const leiloes = await obtemLeiloes();
+
       expect(leiloes).toEqual([]);
+
+      //se foi chamado com a url do get /leiloes
+      expect(apiLeiloes.get).toHaveBeenCalledWith("/leiloes");
+
+      //quantas vezes foi chamado
+      expect(apiLeiloes.get).toHaveBeenCalledTimes(1);
     });
   });
 });
