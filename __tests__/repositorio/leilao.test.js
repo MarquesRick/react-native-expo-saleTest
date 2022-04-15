@@ -1,4 +1,4 @@
-import { obtemLeiloes } from "../../src/repositorio/leilao";
+import { obtemLeiloes, obtemLeilao } from "../../src/repositorio/leilao";
 import apiLeiloes from "../../src/servicos/apiLeiloes";
 
 jest.mock("../../src/servicos/apiLeiloes.js");
@@ -57,6 +57,21 @@ describe("repositorio/leilao", () => {
 
       //quantas vezes foi chamado
       expect(apiLeiloes.get).toHaveBeenCalledTimes(1);
+    });
+  });
+  describe("obtemLeilao", () => {
+    it("deve retornar um leilão", async () => {
+      apiLeiloes.get.mockImplementation(() => mockRequisicao(mockLeiloes[0]));
+
+      const leilao = await obtemLeilao(1);
+      expect(leilao).toEqual(mockLeiloes[0]);
+    });
+
+    it("deve retornar um objeto vazio caso erro na requisição", async () => {
+      apiLeiloes.get.mockImplementation(() => mockRequisicaoErro());
+
+      const leilao = await obtemLeilao(1);
+      expect(leilao).toEqual({});
     });
   });
 });
