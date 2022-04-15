@@ -21,4 +21,10 @@ Com base nessa aplicação iremos criar testes.
 - `Utilizar a biblioteca @testing-library/react-hooks`: Biblioteca que permite testes de hooks com facilidade;
 - `Criar testes de hooks`: Testando a execução de hooks sem a necesidade de mocks dos hooks nativos.
 
+rodando o jest
+npm test
+
+[expo jest](https://docs.expo.dev/guides/testing-with-jest/) 
+
+
 
