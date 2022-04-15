@@ -30,6 +30,9 @@ npm i @types/jest
 instalar expo jest 
 expo install jest-expo jest
 
+instalar testing library para testar hooks e rederers
+npm install --save-dev react-test-renderer@17.0.1 @testing-library/react-native @testing-library/react-hooks
+
 [expo jest](https://docs.expo.dev/guides/testing-with-jest/) 
 [jest expect](https://jestjs.io/pt-BR/docs/expect)
 [jest globais](https://jestjs.io/pt-BR/docs/api)
