@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1650417968845" clover="3.2.0">
-  <project timestamp="1650417968845" name="All files">
-    <metrics statements="140" coveredstatements="128" conditionals="43" coveredconditionals="39" methods="42" coveredmethods="36" elements="225" coveredelements="203" complexity="0" loc="140" ncloc="140" packages="13" files="19" classes="19"/>
+<coverage generated="1650418404648" clover="3.2.0">
+  <project timestamp="1650418404648" name="All files">
+    <metrics statements="140" coveredstatements="140" conditionals="43" coveredconditionals="39" methods="42" coveredmethods="42" elements="225" coveredelements="221" complexity="0" loc="140" ncloc="140" packages="13" files="19" classes="19"/>
     <package name="saleTest">
       <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="App.js" path="/Users/hmarques/work/Cursos/Alura/react-native/saleTest/App.js">
@@ -14,14 +14,14 @@
       <metrics statements="5" coveredstatements="5" conditionals="5" coveredconditionals="5" methods="3" coveredmethods="3"/>
       <file name="Cartao.js" path="/Users/hmarques/work/Cursos/Alura/react-native/saleTest/src/componentes/Cartao.js">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="11" count="5" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
       </file>
       <file name="Icone.js" path="/Users/hmarques/work/Cursos/Alura/react-native/saleTest/src/componentes/Icone.js">
         <metrics statements="3" coveredstatements="3" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="14" count="5" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
       </file>
     </package>
     <package name="saleTest.src.hooks">
@@ -213,29 +213,29 @@
       </file>
     </package>
     <package name="saleTest.src.telas.ListaLeiloes">
-      <metrics statements="10" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="index.js" path="/Users/hmarques/work/Cursos/Alura/react-native/saleTest/src/telas/ListaLeiloes/index.js">
-        <metrics statements="10" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
       </file>
     </package>
     <package name="saleTest.src.telas.ListaLeiloes.componentes">
-      <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="Leilao.js" path="/Users/hmarques/work/Cursos/Alura/react-native/saleTest/src/telas/ListaLeiloes/componentes/Leilao.js">
-        <metrics statements="4" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
       </file>
     </package>
   </project>

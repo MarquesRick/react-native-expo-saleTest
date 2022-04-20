@@ -7,7 +7,7 @@ import Leilao from './componentes/Leilao';
 export default function ListaLeiloes() {
   const [leiloes, obtemLeiloes] = useListaLeiloes();
   const [carregando, setCarregando] = useState(false);
-  
+
   const atualizaLista = async () => {
     setCarregando(true);
     await obtemLeiloes();
@@ -22,6 +22,7 @@ export default function ListaLeiloes() {
       onRefresh={atualizaLista}
       refreshing={carregando}
       contentContainerStyle={estilos.lista}
+      testID="lista-leiloes"
     />
   );
 }
