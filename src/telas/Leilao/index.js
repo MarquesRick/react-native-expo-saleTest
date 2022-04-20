@@ -12,15 +12,14 @@ export default function Leilao() {
   const [carregando, setCarregando] = useState(false);
 
   const id = route.params.id;
-  const [ leilao, obtemLeilao, enviaLance ] = useLeilao(id);
-  
-  const novoLance = async (valor) => {
+  const [leilao, obtemLeilao, enviaLance] = useLeilao(id);
+
+  const novoLance = async valor => {
     const estadoLance = await enviaLance(valor);
-    if (estadoLance.valido)
-      await atualizaLeilao();
+    if (estadoLance.valido) await atualizaLeilao();
 
     return estadoLance;
-  }
+  };
 
   const atualizaLeilao = async () => {
     setCarregando(true);
@@ -29,21 +28,24 @@ export default function Leilao() {
   };
 
   if (!leilao.nome) {
-    return <View />
+    return <View />;
   }
 
-  return <>
-    <FlatList
-      data={leilao.lances}
-      keyExtractor={(leilao) => leilao.id}
-      renderItem={({ item }) => <Lance {...item} cor={leilao.cor} />}
-      ListHeaderComponent={() => <Topo {...leilao} />}
-      onRefresh={atualizaLeilao}
-      refreshing={carregando}
-      contentContainerStyle={estilos.lista}
-    />
-    <EnviaLance cor={leilao.cor} enviaLance={novoLance} />
-  </>
+  return (
+    <>
+      <FlatList
+        data={leilao.lances}
+        keyExtractor={leilao => leilao.id}
+        renderItem={({ item }) => <Lance {...item} cor={leilao.cor} />}
+        ListHeaderComponent={() => <Topo {...leilao} />}
+        onRefresh={atualizaLeilao}
+        refreshing={carregando}
+        contentContainerStyle={estilos.lista}
+        testID="lista-lances"
+      />
+      <EnviaLance cor={leilao.cor} enviaLance={novoLance} />
+    </>
+  );
 }
 
 const estilos = StyleSheet.create({

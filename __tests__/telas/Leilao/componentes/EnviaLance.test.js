@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react-native';
-import EnviaLance from '../../../src/telas/Leilao/componentes/EnviaLance';
+import EnviaLance from '../../../../src/telas/Leilao/componentes/EnviaLance';
 import {
   ENVIADO,
   NAO_ENVIADO,
-} from '../../../src/negocio/constantes/estadosLance';
+} from '../../../../src/negocio/constantes/estadosLance';
 
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 

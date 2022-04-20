@@ -1,10 +1,10 @@
 import {
   obtemLancesDoLeilao,
   adicionaLance,
-} from "../../src/repositorio/lance";
-import apiLeiloes from "../../src/servicos/apiLeiloes";
+} from '../../src/repositorio/lance';
+import apiLeiloes from '../../src/servicos/apiLeiloes';
 
-jest.mock("../../src/servicos/apiLeiloes.js");
+jest.mock('../../src/servicos/apiLeiloes.js');
 
 const mockLances = [
   {
@@ -16,8 +16,8 @@ const mockLances = [
     valor: 20,
   },
 ];
-const mockRequisicao = (retorno) => {
-  return new Promise((resolve) => {
+const mockRequisicao = retorno => {
+  return new Promise(resolve => {
     setTimeout(() => {
       resolve({ data: retorno });
     }, 200);
@@ -32,37 +32,53 @@ const mockRequisicaoErro = () => {
   });
 };
 
-describe("obtemLancesDoLeilao", () => {
+describe('repositorio/lance', () => {
   beforeEach(() => {
     apiLeiloes.get.mockClear();
     apiLeiloes.post.mockClear();
   });
-  it("deve retornar um array de lances", async () => {
-    apiLeiloes.get.mockImplementation(() => mockRequisicao(mockLances));
-    const lances = await obtemLancesDoLeilao(1);
-    expect(lances).toEqual(mockLances);
-    expect(apiLeiloes.get).toHaveBeenCalledWith(
-      "/lances?leilaoId=1&_sort=valor&_order=desc"
-    );
-    expect(apiLeiloes.get).toHaveBeenCalledTimes(1);
+  describe('obtemLancesDoLeilao', () => {
+    it('deve retornar um array de lances', async () => {
+      apiLeiloes.get.mockImplementation(() => mockRequisicao(mockLances));
+      const lances = await obtemLancesDoLeilao(1);
+      expect(lances).toEqual(mockLances);
+      expect(apiLeiloes.get).toHaveBeenCalledWith(
+        '/lances?leilaoId=1&_sort=valor&_order=desc',
+      );
+      expect(apiLeiloes.get).toHaveBeenCalledTimes(1);
+    });
+
+    it('deve retornar um array vazio', async () => {
+      apiLeiloes.get.mockImplementation(() => mockRequisicaoErro());
+
+      const lances = await obtemLancesDoLeilao(1);
+
+      expect(apiLeiloes.get).toHaveBeenCalledWith(
+        '/lances?leilaoId=1&_sort=valor&_order=desc',
+      );
+
+      expect(apiLeiloes.get).toHaveBeenCalledTimes(1);
+      expect(lances).toEqual([]);
+    });
   });
-  describe("adicionaLance", () => {
-    it("deve retornar true caso a requisição funcione", async () => {
+
+  describe('adicionaLance', () => {
+    it('deve retornar true caso a requisição funcione', async () => {
       apiLeiloes.post.mockImplementation(() => mockRequisicao());
 
       const sucesso = await adicionaLance(mockLances[0]);
 
-      expect(apiLeiloes.post).toHaveBeenCalledWith("/lances", mockLances[0]);
+      expect(apiLeiloes.post).toHaveBeenCalledWith('/lances', mockLances[0]);
       expect(apiLeiloes.post).toHaveBeenCalledTimes(1);
       expect(sucesso).toBe(true);
     });
 
-    it("deve retornar false caso dê erro na requisição", async () => {
+    it('deve retornar false caso dê erro na requisição', async () => {
       apiLeiloes.post.mockImplementation(() => mockRequisicaoErro());
 
       const sucesso = await adicionaLance(mockLances[0]);
 
-      expect(apiLeiloes.post).toHaveBeenCalledWith("/lances", mockLances[0]);
+      expect(apiLeiloes.post).toHaveBeenCalledWith('/lances', mockLances[0]);
       expect(apiLeiloes.post).toHaveBeenCalledTimes(1);
       expect(sucesso).toBe(false);
     });
